@@ -7,16 +7,9 @@
 
 package false_paradise;
 
-import FreeplayState.SongMetadata;
+import states.FreeplayState.SongMetadata;
 import flixel.FlxG;
 import flixel.FlxSprite;
-import groovin.GroovinConstants;
-import groovin.StateConstants;
-import groovin.mod.Mod;
-import groovin.mod.ModHooks;
-import groovin.mod_options.GroovinModOptionsClasses.GroovinModOption;
-import groovin.mod_options.GroovinModOptionsClasses.GroovinModOptionCheckbox;
-import groovin.week.ModWeekData;
 import schmovin.SchmovinInstance;
 
 class FalseParadiseInstance
@@ -34,7 +27,7 @@ class FalseParadiseInstance
 	}
 }
 
-class FalseParadiseMod extends Mod
+class FalseParadiseMod
 {
 	var _inst:FalseParadiseInstance;
 	var optionDisableBGShader:Bool = false;
@@ -42,15 +35,6 @@ class FalseParadiseMod extends Mod
 	public static function GetAssetPath(s:String)
 	{
 		return 'mod:mod_assets/FalseParadiseMod/weeks/${s}';
-	}
-
-	override function initialize()
-	{
-		hook(ModHooks.hookSetupStage);
-		hook(ModHooks.hookPreCameras);
-		hook(ModHooks.hookAddMissDamage);
-		StateConstants.MAIN_MENU_STATE = FalseParadiseShoutoutsState;
-		// StateConstants.CHARTING_STATE = FalseParadiseChartingState;
 	}
 
 	override function addMissDamage(state:PlayState, causedByLateness:Bool):Float
@@ -73,19 +57,7 @@ class FalseParadiseMod extends Mod
 		return false;
 	}
 
-	override function registerModOptions():Array<GroovinModOption<Dynamic>>
-	{
-		return [
-			new GroovinModOptionCheckbox(this, 'disableCloudBackground', 'Disable Cloud Background Shader', false, (v) ->
-			{
-				optionDisableBGShader = v;
-				if (_inst != null)
-					_inst.optionDisableBGShader = optionDisableBGShader;
-			}, false)
-		];
-	}
-
-	override function receiveCrossModCall(command:String, sender:Mod, args:Array<Dynamic>)
+	override function receiveCrossModCall(command:String, args:Array<Dynamic>)
 	{
 		if (PlayState.SONG.song == 'false-paradise' && shouldRun())
 		{
@@ -125,19 +97,6 @@ class FalseParadiseMod extends Mod
 		_inst.stageCurtains.active = false;
 
 		state.add(_inst.stageCurtains);
-	}
-
-	override function getModWeekData():Array<ModWeekData>
-	{
-		var menu = cast(FlxG.state, StoryMenuState);
-
-		menu.weekData = [['Tutorial']];
-		menu.weekCharacters = [['dad', 'bf', 'gf']];
-		menu.weekNames = [''];
-		return [
-			new ModWeekData(this, 'false-paradise', ['false-paradise'], '\"something big\"', ['dad', 'bf', 'gf'],
-				'mod:mod_assets/${getName()}/preload/weeks/week.png')
-		];
 	}
 
 	override function addToFreeplay(addWeek:(Array<String>, String, Array<String>) -> Void, weekNum:Int)
