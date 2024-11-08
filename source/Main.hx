@@ -2,8 +2,6 @@ package;
 
 import schmovin.SchmovinAdapter;
 import schmovin.SchmovinStandalone;
-import schmovin.SchmovinInstance;
-import false_paradise.FalseParadiseSchmovinClient;
 import flixel.graphics.FlxGraphic;
 import flixel.FlxG;
 import flixel.FlxGame;
@@ -27,8 +25,6 @@ import sys.io.File;
 import sys.io.Process;
 #end
 
-import groovin.mod.Mod;
-
 using StringTools;
 
 class Main extends Sprite
@@ -49,19 +45,7 @@ class Main extends Sprite
 	{
 		Lib.current.addChild(new Main());
 	}
-        override function receiveCrossModCall(command:String, sender:Mod, args:Array<Dynamic>)
-	{
-            if (PlayState.SONG.song == 'false-paradise' && shouldRun())
-            {
-                switch (command)
-                {
-                        case 'SchmovinSetClient':
-                        var instance:SchmovinInstance = cast args[0];
-                        var cli = new FalseParadiseSchmovinClient(instance, args[1], args[2]);
-                        instance.setClient(cli);
-                }
-            }
-	}
+
 	public function new()
 	{
 		super();
