@@ -9,7 +9,6 @@ package false_paradise.note_mods;
 
 import flixel.FlxG;
 import flixel.math.FlxMath;
-import groovin.util.GroovinConductor;
 import lime.math.Vector4;
 import schmovin.SchmovinPlayfield;
 import schmovin.note_mods.NoteModBase;
@@ -25,8 +24,8 @@ class NoteModCounterClockwise extends NoteModBase
 		var centerY = FlxG.height / 2;
 		var radiusOffset = Note.swagWidth * ((column % 4) - 1.5);
 		var radius = 200 + radiusOffset * Math.cos(strumTime / Conductor.stepCrochet / 16 * Math.PI);
-		var outX = centerX + Math.cos(strumTime / GroovinConductor.getCrotchetNow() / 4 * Math.PI) * radius;
-		var outY = centerY + Math.sin(strumTime / GroovinConductor.getCrotchetNow() / 4 * Math.PI) * radius;
+		var outX = centerX + Math.cos(strumTime() / 4 * Math.PI) * radius;
+		var outY = centerY + Math.sin(strumTime() / 4 * Math.PI) * radius;
 
 		return SchmovinUtil.vec4Lerp(pos, new Vector4(outX, outY, 0, 0), getPercent(playfield));
 	}
