@@ -9,7 +9,6 @@ package false_paradise.note_mods;
 
 import flixel.FlxG;
 import flixel.math.FlxMath;
-import groovin.util.GroovinUtil;
 import lime.math.Vector4;
 import schmovin.SchmovinPlayfield;
 import schmovin.note_mods.NoteModBase;
