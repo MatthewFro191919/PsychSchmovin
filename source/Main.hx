@@ -2,6 +2,8 @@ package;
 
 import schmovin.SchmovinAdapter;
 import schmovin.SchmovinStandalone;
+import schmovin.SchmovinInstance;
+import false_paradise.FalseParadiseSchmovinClient;
 import flixel.graphics.FlxGraphic;
 import flixel.FlxG;
 import flixel.FlxGame;
