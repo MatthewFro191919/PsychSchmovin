@@ -1,4 +1,4 @@
-package false_paradise;
+package schmovin;
 
 import flixel.FlxG;
 import flixel.FlxSprite;
