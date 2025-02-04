@@ -52,7 +52,6 @@ class FalseParadiseMod
 	{
 		if (Type.getClass(FlxG.state) == PlayState)
 		{
-			return PlayState.curMod == this && PlayState.isModdedStage;
 		}
 		return false;
 	}
