@@ -5,7 +5,7 @@
  * @ Modified time: 2021-12-26 20:58:08
  */
 
-package false_paradise.note_mods;
+package schmovin.note_mods;
 
 import false_paradise.note_mods.NoteModArrowShape.TimeVector;
 import flixel.FlxG;
