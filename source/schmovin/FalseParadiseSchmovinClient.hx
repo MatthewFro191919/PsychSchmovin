@@ -5,7 +5,7 @@
  * @ Modified time: 2022-03-21 15:19:08
  */
 
-package false_paradise;
+package schmovin;
 
 import false_paradise.FalseParadiseMod.FalseParadiseInstance;
 import false_paradise.background.CloudFlightBackground;
