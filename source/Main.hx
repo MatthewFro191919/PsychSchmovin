@@ -43,7 +43,7 @@ class Main extends Sprite
 	public static var schmovin:SchmovinStandalone;
 	public static var timeline:SchmovinTimeline;
 	public static var state:PlayState;
-	public static var modInstance:FalseParadiseInstance
+	public static var modInstance:FalseParadiseInstance;
 
 	// You can pretty much ignore everything from here on - your code should go in your states.
 
