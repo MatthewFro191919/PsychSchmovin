@@ -1,4 +1,4 @@
-package false_paradise.shaders;
+package schmovin.shaders;
 
 import flixel.FlxSprite;
 import flixel.system.FlxAssets.FlxShader;
