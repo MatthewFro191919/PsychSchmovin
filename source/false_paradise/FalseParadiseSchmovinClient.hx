@@ -26,7 +26,7 @@ import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.tweens.FlxEase;
 import flixel.util.FlxColor;
-import groovin.shaders.GroovinShaders.SolidColorEffect;
+import schmovin.shaders.SolidColorEffect;
 import lime.math.Vector2;
 import lime.math.Vector4;
 import openfl.filters.ShaderFilter;
