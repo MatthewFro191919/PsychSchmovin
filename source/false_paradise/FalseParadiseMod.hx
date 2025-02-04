@@ -7,7 +7,7 @@
 
 package false_paradise;
 
-import states.FreeplayState.SongMetadata;
+import FreeplayState.SongMetadata;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import schmovin.SchmovinInstance;
