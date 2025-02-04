@@ -23,7 +23,7 @@ haxelib install hscript 2.6.0
 haxelib install tjson 1.4.0
 haxelib install hxdiscord_rpc 1.2.4
 haxelib install hxvlc 1.9.2
-haxelib install hxCodec 2.6.1
+haxelib install hxCodec 2.5.1
 haxelib install markdown
 haxelib install HtmlParser
 haxelib install nape-haxe4
