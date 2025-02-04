@@ -4,7 +4,7 @@ import schmovin.SchmovinAdapter;
 import schmovin.SchmovinStandalone;
 import schmovin.SchmovinTimeline;
 import false_paradise.FalseParadiseSchmovinClient;
-import false_paradise.FalseParadiseInstance;
+import false_paradise.FalseParadiseMod.FalseParadiseInstance;
 import flixel.graphics.FlxGraphic;
 import flixel.FlxG;
 import flixel.FlxGame;
