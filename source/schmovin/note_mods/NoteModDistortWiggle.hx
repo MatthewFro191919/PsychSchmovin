@@ -5,7 +5,7 @@
  * @ Modified time: 2021-12-01 17:36:32
  */
 
-package false_paradise.note_mods;
+package schmovin.note_mods;
 
 import lime.math.Vector4;
 import schmovin.SchmovinPlayfield;
