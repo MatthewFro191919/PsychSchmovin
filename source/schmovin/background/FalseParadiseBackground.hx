@@ -1,6 +1,6 @@
-package false_paradise.background;
+package schmovin.background;
 
-import false_paradise.shaders.FalseParadiseShader.FalseParadiseBackground;
+import schmovin.shaders.FalseParadiseShader.FalseParadiseBackground;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.util.FlxColor;
