@@ -2,7 +2,9 @@ package;
 
 import schmovin.SchmovinAdapter;
 import schmovin.SchmovinStandalone;
+import schmovin.SchmovinTimeline;
 import false_paradise.FalseParadiseSchmovinClient;
+import false_paradise.FalseParadiseInstance;
 import flixel.graphics.FlxGraphic;
 import flixel.FlxG;
 import flixel.FlxGame;
@@ -39,7 +41,9 @@ class Main extends Sprite
 	var startFullscreen:Bool = false; // Whether to start the game in fullscreen on desktop targets
 	public static var fpsVar:FPS;
 	public static var schmovin:SchmovinStandalone;
-	public static var falseparadisemodchartclient:FalseParadiseSchmovinClient;
+	public static var timeline:SchmovinTimeline;
+	public static var state:PlayState;
+	public static var modInstance:FalseParadiseInstance
 
 	// You can pretty much ignore everything from here on - your code should go in your states.
 
@@ -101,7 +105,9 @@ class Main extends Sprite
 
 		SchmovinAdapter.setInstance(new PsychSchmovinAdapter());
 		schmovin = new SchmovinStandalone();
-		falseparadisemodchartclient = new FalseParadiseSchmovinClient();
+		modInstance = new FalseParadiseInstance();
+		timeline = new SchmovinTimeline();
+		state = new PlayState();
 
 		#if html5
 		FlxG.autoPause = false;
