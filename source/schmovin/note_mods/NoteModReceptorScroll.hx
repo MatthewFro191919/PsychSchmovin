@@ -5,7 +5,7 @@
  * @ Modified time: 2021-12-01 17:38:13
  */
 
-package false_paradise.note_mods;
+package schmovin.note_mods;
 
 import flixel.FlxG;
 import flixel.math.FlxMath;
