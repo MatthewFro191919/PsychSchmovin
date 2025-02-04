@@ -37,18 +37,18 @@ class FalseParadiseMod
 		return 'mod:mod_assets/FalseParadiseMod/weeks/${s}';
 	}
 
-	override function addMissDamage(state:PlayState, causedByLateness:Bool):Float
+	function addMissDamage(state:PlayState, causedByLateness:Bool):Float
 	{
 		return 0.04;
 	}
 
-	override function preCameras(state:PlayState)
+	function preCameras(state:PlayState)
 	{
 		_inst = FalseParadiseInstance.Create();
 		_inst.optionDisableBGShader = optionDisableBGShader;
 	}
 
-	override function shouldRun():Bool
+	function shouldRun():Bool
 	{
 		if (Type.getClass(FlxG.state) == PlayState)
 		{
@@ -57,7 +57,7 @@ class FalseParadiseMod
 		return false;
 	}
 
-	override function receiveCrossModCall(command:String, args:Array<Dynamic>)
+	function receiveCrossModCall(command:String, args:Array<Dynamic>)
 	{
 		if (PlayState.SONG.song == 'false-paradise' && shouldRun())
 		{
@@ -72,7 +72,7 @@ class FalseParadiseMod
 		}
 	}
 
-	override function setupStage(state:PlayState, stageName:String)
+	function setupStage(state:PlayState, stageName:String)
 	{
 		state.defaultCamZoom = 0.9;
 		_inst.bg = new FlxSprite(-600, -200).loadGraphic(Paths.image('stageback'));
@@ -99,7 +99,7 @@ class FalseParadiseMod
 		state.add(_inst.stageCurtains);
 	}
 
-	override function addToFreeplay(addWeek:(Array<String>, String, Array<String>) -> Void, weekNum:Int)
+	function addToFreeplay(addWeek:(Array<String>, String, Array<String>) -> Void, weekNum:Int)
 	{
 		var menu = cast(FlxG.state, FreeplayState);
 		// menu.songs = [new SongMetadata('tutorial', 1, 'gf')];
