@@ -25,7 +25,7 @@ class FalseParadiseInstance
 	public var bg:FlxSprite;
 	public var stageFront:FlxSprite;
 	public var stageCurtains:FlxSprite;
-    public var sendCrossModCall:Int;
+        public var sendCrossModCall:Int;
 
 	private function new() {}
 
@@ -67,10 +67,7 @@ class FalseParadiseMod extends Mod
 
 	override function shouldRun():Bool
 	{
-		if (Type.getClass(FlxG.state) == PlayState)
-		{
-			return PlayState.curMod == this && PlayState.isModdedStage;
-		}
+		if (Type.getClass(FlxG.state) == PlayState) {}
 		return false;
 	}
 
