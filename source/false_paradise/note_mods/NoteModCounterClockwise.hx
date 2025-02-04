@@ -22,8 +22,6 @@ class NoteModCounterClockwise extends NoteModBase
 		var strumTime = Conductor.songPosition - strumTime;
 		var centerX = FlxG.width / 2;
 		var centerY = FlxG.height / 2;
-		var radiusOffset = Note.swagWidth * ((column % 4) - 1.5);
-		var radius = 200 + radiusOffset * Math.cos(strumTime / Conductor.stepCrochet / 16 * Math.PI);
 		var outX = centerX + Math.cos(strumTime() / 4 * Math.PI) * radius;
 		var outY = centerY + Math.sin(strumTime() / 4 * Math.PI) * radius;
 
