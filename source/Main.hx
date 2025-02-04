@@ -2,6 +2,7 @@ package;
 
 import schmovin.SchmovinAdapter;
 import schmovin.SchmovinStandalone;
+import false_paradise.*;
 import flixel.graphics.FlxGraphic;
 import flixel.FlxG;
 import flixel.FlxGame;
