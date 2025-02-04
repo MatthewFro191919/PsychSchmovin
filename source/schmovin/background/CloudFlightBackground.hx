@@ -1,6 +1,6 @@
 package schmovin.background;
 
-import false_paradise.shaders.CloudFlight;
+import schmovin.shaders.CloudFlight;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.util.FlxColor;
