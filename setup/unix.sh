@@ -22,6 +22,7 @@ haxelib git polymod https://github.com/larsiusprime/polymod.git
 haxelib install hxcpp-debug-server
 haxelib install actuate
 haxelib install hscript-iris 1.1.0
+haxelib install hscript
 haxelib install tjson 1.4.0
 haxelib install hxdiscord_rpc 1.2.4
 haxelib install hxvlc 1.9.2
