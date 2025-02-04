@@ -9,7 +9,7 @@ package false_paradise.note_mods;
 
 import flixel.FlxG;
 import flixel.math.FlxMath;
-import groovin.util.GroovinConductor;
+import schmovin.SchmovinAdapter;
 import lime.math.Vector4;
 import schmovin.SchmovinPlayfield;
 import schmovin.note_mods.NoteModBase;
@@ -24,8 +24,8 @@ class NoteModSpiral extends NoteModBase
 		var centerY = FlxG.height / 2;
 		var radiusOffset = -strumTimeDiff / 4;
 		var radius = radiusOffset + getOtherPercent('spiraldist', playfield) * column % 4;
-		var outX = centerX + Math.cos(-strumTimeDiff / GroovinConductor.getCrotchetNow() * Math.PI + currentBeat * Math.PI / 4) * radius;
-		var outY = centerY + Math.sin(-strumTimeDiff / GroovinConductor.getCrotchetNow() * Math.PI - currentBeat * Math.PI / 4) * radius;
+		var outX = centerX + Math.cos(-strumTimeDiff / SchmovinAdapter.getCrotchetNow() * Math.PI + currentBeat * Math.PI / 4) * radius;
+		var outY = centerY + Math.sin(-strumTimeDiff / SchmovinAdapter.getCrotchetNow() * Math.PI - currentBeat * Math.PI / 4) * radius;
 
 		return SchmovinUtil.vec4Lerp(pos, new Vector4(outX, outY, radius / FlxG.height * 2 - 1, 0), getPercent(playfield));
 	}
