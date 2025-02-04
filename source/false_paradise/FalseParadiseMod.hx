@@ -10,6 +10,13 @@ package false_paradise;
 import FreeplayState.SongMetadata;
 import flixel.FlxG;
 import flixel.FlxSprite;
+import groovin.GroovinConstants;
+import groovin.StateConstants;
+import groovin.mod.Mod;
+import groovin.mod.ModHooks;
+import groovin.mod_options.GroovinModOptionsClasses.GroovinModOption;
+import groovin.mod_options.GroovinModOptionsClasses.GroovinModOptionCheckbox;
+import groovin.week.ModWeekData;
 import schmovin.SchmovinInstance;
 
 class FalseParadiseInstance
@@ -18,6 +25,7 @@ class FalseParadiseInstance
 	public var bg:FlxSprite;
 	public var stageFront:FlxSprite;
 	public var stageCurtains:FlxSprite;
+    public var sendCrossModCall:Int;
 
 	private function new() {}
 
@@ -27,7 +35,7 @@ class FalseParadiseInstance
 	}
 }
 
-class FalseParadiseMod
+class FalseParadiseMod extends Mod
 {
 	var _inst:FalseParadiseInstance;
 	var optionDisableBGShader:Bool = false;
@@ -37,26 +45,48 @@ class FalseParadiseMod
 		return 'mod:mod_assets/FalseParadiseMod/weeks/${s}';
 	}
 
-	function addMissDamage(state:PlayState, causedByLateness:Bool):Float
+	override function initialize()
+	{
+		hook(ModHooks.hookSetupStage);
+		hook(ModHooks.hookPreCameras);
+		hook(ModHooks.hookAddMissDamage);
+		StateConstants.MAIN_MENU_STATE = FalseParadiseShoutoutsState;
+		// StateConstants.CHARTING_STATE = FalseParadiseChartingState;
+	}
+
+	override function addMissDamage(state:PlayState, causedByLateness:Bool):Float
 	{
 		return 0.04;
 	}
 
-	function preCameras(state:PlayState)
+	override function preCameras(state:PlayState)
 	{
 		_inst = FalseParadiseInstance.Create();
 		_inst.optionDisableBGShader = optionDisableBGShader;
 	}
 
-	function shouldRun():Bool
+	override function shouldRun():Bool
 	{
 		if (Type.getClass(FlxG.state) == PlayState)
 		{
+			return PlayState.curMod == this && PlayState.isModdedStage;
 		}
 		return false;
 	}
 
-	function receiveCrossModCall(command:String, args:Array<Dynamic>)
+	override function registerModOptions():Array<GroovinModOption<Dynamic>>
+	{
+		return [
+			new GroovinModOptionCheckbox(this, 'disableCloudBackground', 'Disable Cloud Background Shader', false, (v) ->
+			{
+				optionDisableBGShader = v;
+				if (_inst != null)
+					_inst.optionDisableBGShader = optionDisableBGShader;
+			}, false)
+		];
+	}
+
+	override function receiveCrossModCall(command:String, sender:Mod, args:Array<Dynamic>)
 	{
 		if (PlayState.SONG.song == 'false-paradise' && shouldRun())
 		{
@@ -71,7 +101,7 @@ class FalseParadiseMod
 		}
 	}
 
-	function setupStage(state:PlayState, stageName:String)
+	override function setupStage(state:PlayState, stageName:String)
 	{
 		state.defaultCamZoom = 0.9;
 		_inst.bg = new FlxSprite(-600, -200).loadGraphic(Paths.image('stageback'));
@@ -98,7 +128,20 @@ class FalseParadiseMod
 		state.add(_inst.stageCurtains);
 	}
 
-	function addToFreeplay(addWeek:(Array<String>, String, Array<String>) -> Void, weekNum:Int)
+	override function getModWeekData():Array<ModWeekData>
+	{
+		var menu = cast(FlxG.state, StoryMenuState);
+
+		menu.weekData = [['Tutorial']];
+		menu.weekCharacters = [['dad', 'bf', 'gf']];
+		menu.weekNames = [''];
+		return [
+			new ModWeekData(this, 'false-paradise', ['false-paradise'], '\"something big\"', ['dad', 'bf', 'gf'],
+				'mod:mod_assets/${getName()}/preload/weeks/week.png')
+		];
+	}
+
+	override function addToFreeplay(addWeek:(Array<String>, String, Array<String>) -> Void, weekNum:Int)
 	{
 		var menu = cast(FlxG.state, FreeplayState);
 		// menu.songs = [new SongMetadata('tutorial', 1, 'gf')];
