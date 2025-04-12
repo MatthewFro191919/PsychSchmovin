@@ -5,7 +5,7 @@
  * @ Modified time: 2021-12-26 20:57:43
  */
 
-package schmovin.misc_mods;
+package schmovin.false_paradise;
 
 import FreeplayState.SongMetadata;
 import flixel.FlxG;
