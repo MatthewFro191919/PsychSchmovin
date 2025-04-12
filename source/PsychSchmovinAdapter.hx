@@ -3,6 +3,7 @@ package;
 import flixel.FlxG;
 import schmovin.SchmovinAdapter;
 import schmovin.SchmovinUtil;
+import schmovin.FalseParadiseSchmovinClient;
 
 // Psych Schmovin Adapter
 class PsychSchmovinAdapter extends SchmovinAdapter
