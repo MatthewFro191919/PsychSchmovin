@@ -7,19 +7,19 @@
 
 package schmovin;
 
-import false_paradise.FalseParadiseMod.FalseParadiseInstance;
-import false_paradise.background.CloudFlightBackground;
-import false_paradise.background.FalseParadiseBackground.FalseParadiseBackgroundSprite;
-import false_paradise.note_mods.NoteModArrowShape;
-import false_paradise.note_mods.NoteModCounterClockwise;
-import false_paradise.note_mods.NoteModDistortWiggle;
-import false_paradise.note_mods.NoteModEyeShape;
-import false_paradise.note_mods.NoteModReceptorScroll;
-import false_paradise.note_mods.NoteModSpiral;
-import false_paradise.note_mods.NoteModVibrate;
-import false_paradise.note_mods.NoteModWiggle;
-import false_paradise.shaders.FalseParadiseCRT;
-import false_paradise.shaders.FalseParadiseGlitchy;
+import schmovin.FalseParadiseMod.FalseParadiseInstance;
+import schmovin.background.CloudFlightBackground;
+import schmovin.background.FalseParadiseBackground.FalseParadiseBackgroundSprite;
+import schmovin.note_mods.NoteModArrowShape;
+import schmovin.note_mods.NoteModCounterClockwise;
+import schmovin.note_mods.NoteModDistortWiggle;
+import schmovin.note_mods.NoteModEyeShape;
+import schmovin.note_mods.NoteModReceptorScroll;
+import schmovin.note_mods.NoteModSpiral;
+import schmovin.note_mods.NoteModVibrate;
+import schmovin.note_mods.NoteModWiggle;
+import schmovin.shaders.FalseParadiseCRT;
+import schmovin.shaders.FalseParadiseGlitchy;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.graphics.frames.FlxAtlasFrames;
