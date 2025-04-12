@@ -1,7 +1,8 @@
 package;
 
-import schmovin.SchmovinAdapter;
-import schmovin.SchmovinStandalone;
+//schmovin shit
+import schmovin.*;
+
 import flixel.graphics.FlxGraphic;
 import flixel.FlxG;
 import flixel.FlxGame;
